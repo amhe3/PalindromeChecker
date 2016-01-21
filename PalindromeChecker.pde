@@ -17,12 +17,22 @@ public void setup()
 public boolean palindrome(String word)
 {
   String newStr = new String();
+  String reverse = new String();
   for(int i = 0; i < word.length(); i++)
   {
-    if(word.substring(i, i + 1).equals(word.substring(word.length()-(i+1))))
+    if(!word.substring(i, i + 1).equals(" ") && !word.substring(i, i + 1).equals("!") && !word.substring(i, i + 1).equals("'") && !word.substring(i, i + 1).equals(","))
     {
-      return true;
+      newStr = newStr + word.substring(i, i+1);
     }
+
+  }
+  for(int i = newStr.length()-1; i >=0; i--)
+  {
+    reverse = reverse + newStr.substring(i, i +1);
+  }
+  if(newStr.equalsIgnoreCase(reverse))
+  {
+    return true;
   }
   return false;
 }
